@@ -35,7 +35,7 @@ jobs:
     name: 'Bicep Unit Tests'
     runs-on: ubuntu-latest
     needs: [environments]
-    environment: ${{ needs.environments.outputs.environment }}
+    #environment: ${{ needs.environments.outputs.environment }}
     #permissions:
     #  actions: read
      # security-events: write
