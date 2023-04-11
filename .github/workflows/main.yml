@@ -162,5 +162,5 @@ jobs:
       uses: Azure/cli@v1
       with:
         inlineScript: |
-          #az deployment group create --resource-group EL --template-file app.bicep --parameters logicAppName=Electrolux-test-new
+          #az deployment group create --resource-group EL --template-file app.bicep --parameters logicAppName=Electrolux-test
           az resource list --resource-group EL
