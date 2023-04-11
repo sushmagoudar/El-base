@@ -1,34 +1,34 @@
 on: workflow_call
 # TODO add some inputs if you really need them, you example inputs could be removed without loss of information.
+
 jobs:
-  steps:
-    - name: Configuration for dev branch
-      if: ${{ github.ref == 'refs/heads/dev' }}
-      uses: "ELX-PeopleTech-DevOps/elx-a2-peopletech-workflow-base/.github/workflows/main.yml@dev"
-      with:
-        environment_name: ${{ github.ref_name }}
-        repository_name: ${{ github.repository }}
-        repository_ref_name: ${{ github.ref_name }}
-        repository_commit_hash: ${{ github.sha }}
-      secrets: inherit
+  call-workflow-passing-dev:
+    if: ${{ github.ref == 'refs/heads/dev' }}
+    uses: sushmagoudar/El-base/.github/workflows/main.yml@dev
+    with:
+      environment_name: ${{ github.ref_name }}
+      repository_name: ${{ github.repository }}
+      repository_ref_name: ${{ github.ref_name }}
+    secrets: inherit
 
-     - name: Configuration for test branch
-       if: ${{ github.ref == 'refs/heads/test' }}
-       uses: "ELX-PeopleTech-DevOps/elx-a2-peopletech-workflow-base/.github/workflows/main.yml@test"
-       with:
-        environment_name: ${{ github.ref_name }}
-        repository_name: ${{ github.repository }}
-        repository_ref_name: ${{ github.ref_name }}
-        repository_commit_hash: ${{ github.sha }}
-       secrets: inherit   
+  call-workflow-passing-test:
+    if: ${{ github.ref == 'refs/heads/dev' }}
+    uses: sushmagoudar/El-base/.github/workflows/main.yml@test
+    with:
+      environment_name: ${{ github.ref_name }}
+      repository_name: ${{ github.repository }}
+      repository_ref_name: ${{ github.ref_name }}
+    secrets: inherit
 
-     - name: Configuration for test branch
-       if: ${{ github.ref == 'refs/heads/prod' }}
-       uses: "ELX-PeopleTech-DevOps/elx-a2-peopletech-workflow-base/.github/workflows/main.yml@prod"
-       with:
-        environment_name: ${{ github.ref_name }}
-        repository_name: ${{ github.repository }}
-        repository_ref_name: ${{ github.ref_name }}
-        repository_commit_hash: ${{ github.sha }}
-       secrets: inherit
+  call-workflow-passing-prod:
+    if: ${{ github.ref == 'refs/heads/dev' }}
+    uses: sushmagoudar/El-base/.github/workflows/main.yml@prod
+    with:
+      environment_name: ${{ github.ref_name }}
+      repository_name: ${{ github.repository }}
+      repository_ref_name: ${{ github.ref_name }}
+    secrets: inherit
+
+
+
   
