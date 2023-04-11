@@ -1,14 +1,6 @@
 name: 'Bicep Unit Tests'
-
-# We run on just PRs + main since this validate requires full read/write permissions to Azure and we can't do wildcards for the branch name in Azure OIDC federated credentials
 on:
   workflow_call:
-#     inputs:
-#       environment:
-#         description: Name of environment
-#         type: string
-#         required: true
-
 env:
   LOCATION: "eastus"
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -28,13 +20,11 @@ jobs:
     steps:
       - run: echo "Setting $ENVIRONMENT.."
     outputs:
-      # Defaults to 'dev' in case of a feature branch
-      # You could also use the contains expression if needed
       environment: ${{github.ref_name	}}
   bicep-unit-tests:
     name: 'Bicep Unit Tests'
     runs-on: ubuntu-latest
-    needs: [environments]
+    #needs: [environments]
     #environment: ${{ needs.environments.outputs.environment }}
     #permissions:
     #  actions: read
