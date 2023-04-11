@@ -1,4 +1,7 @@
-on: workflow_call
+name: 'envirnment test'
+
+on: 
+  workflow_call:
 # TODO add some inputs if you really need them, you example inputs could be removed without loss of information.
 
 jobs:
