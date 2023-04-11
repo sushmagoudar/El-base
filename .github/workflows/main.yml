@@ -12,7 +12,7 @@ on:
 env:
   LOCATION: "eastus"
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  BRANCH_NAME: ${{github.ref_name	}}
+  BRANCH_NAME: ${{github.ref_name}}
   
   
 #Special permissions required for OIDC authentication
